@@ -1,52 +1,28 @@
-import React from 'react'
-import styled from '@emotion/styled'
+import * as S from './styles'
 
 interface IButton {
   ariaLabel: string
-  className?: string
   children: React.ReactNode
-
-  fontFamily?: string
-  color?: string
-  backgroundColor?: string
-  boxShadow?: string
-
-  padding?: string
-  borderRadius?: number
-
-  hoverColor?: string
-  hoverBackgroundColor?: string
 }
 
-const Button = (props: IButton) => {
-  return (
-    <button aria-label={props.ariaLabel} className={props.className}>
-      {props.children}
-    </button>
-  )
-}
+export const ButtonLight = (props: IButton) => (
+  <S.ButtonLight aria-label={props.ariaLabel}>{props.children}</S.ButtonLight>
+)
 
-const StyledButton = styled(Button)<IButton>((props) => ({
-  fontFamily: props.fontFamily,
-  fontFize: 17,
-  fontWeight: 500,
+export const ButtonPrimary = (props: IButton) => (
+  <S.ButtonPrimary aria-label={props.ariaLabel}>{props.children}</S.ButtonPrimary>
+)
 
-  padding: props.padding,
-  borderRadius: props.borderRadius,
+export const ButtonPrimaryWithIcon = (props: IButton) => (
+  <S.ButtonPrimaryWithIcon aria-label={props.ariaLabel}>
+    {props.children}
+    <S.IconArrowRight />
+  </S.ButtonPrimaryWithIcon>
+)
 
-  color: props.color,
-  backgroundColor: props.backgroundColor,
-  boxShadow: props.boxShadow,
-
-  '&:hover': {
-    color: props.hoverColor,
-    backgroundColor: props.hoverBackgroundColor
-  },
-
-  '&:active': {
-    color: '#606f7a',
-    backgroundColor: '#ffffff'
-  }
-}))
-
-export default StyledButton
+export const ButtonOutlineWithIcon = (props: IButton) => (
+  <S.ButtonOutlineWithIcon aria-label={props.ariaLabel}>
+    {props.children}
+    <S.IconArrowRightShort />
+  </S.ButtonOutlineWithIcon>
+)
