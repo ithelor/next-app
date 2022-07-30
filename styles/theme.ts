@@ -21,16 +21,16 @@ export const baseTheme = {
   sizes: {
     buttons: {
       normal: {
-        padding: '14px 22px',
-        borderRadius: 3
+        padding: '14px 30px',
+        borderRadius: '3px'
       },
       large: {
         padding: '25px 39px',
-        borderRadius: 3
+        borderRadius: '3px'
       },
       wide: {
         padding: '19px 35px',
-        borderRadius: 5
+        borderRadius: '5px'
       }
     }
   }
