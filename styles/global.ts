@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 
 export default css`
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto:wght@500');
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Roboto:wght@400;500;600');
 
   html {
     font-size: 14px;
@@ -20,3 +20,4 @@ export default css`
     border: 0;
   }
 `
+
