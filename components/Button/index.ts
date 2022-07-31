@@ -1,1 +1,1 @@
-export { ButtonLight, ButtonPrimary, ButtonPrimaryWithIcon, ButtonOutlineWithIcon } from './Button'
+export { ButtonLight, ButtonPrimary, ButtonPrimaryLarge, ButtonOutlineWide } from './Button'

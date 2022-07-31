@@ -13,16 +13,10 @@ export const ButtonPrimary = (props: IButton) => (
   <S.ButtonPrimary aria-label={props.ariaLabel}>{props.children}</S.ButtonPrimary>
 )
 
-export const ButtonPrimaryWithIcon = (props: IButton) => (
-  <S.ButtonPrimaryWithIcon aria-label={props.ariaLabel}>
-    {props.children}
-    <S.IconArrowRight />
-  </S.ButtonPrimaryWithIcon>
+export const ButtonPrimaryLarge = (props: IButton) => (
+  <S.ButtonPrimaryLarge aria-label={props.ariaLabel}>{props.children}</S.ButtonPrimaryLarge>
 )
 
-export const ButtonOutlineWithIcon = (props: IButton) => (
-  <S.ButtonOutlineWithIcon aria-label={props.ariaLabel}>
-    {props.children}
-    <S.IconArrowRightShort />
-  </S.ButtonOutlineWithIcon>
+export const ButtonOutlineWide = (props: IButton) => (
+  <S.ButtonOutlineWide aria-label={props.ariaLabel}>{props.children}</S.ButtonOutlineWide>
 )

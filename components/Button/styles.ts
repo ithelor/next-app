@@ -1,12 +1,6 @@
 import styled from '@emotion/styled'
 
-import ArrowRight from 'public/vector94.svg'
-import ArrowRightShort from 'public/vector50.svg'
-
 import { baseTheme } from 'styles/theme'
-
-export const IconArrowRight = styled(ArrowRight)``
-export const IconArrowRightShort = styled(ArrowRightShort)``
 
 export const ButtonLight = styled.button`
   cursor: pointer;
@@ -45,7 +39,7 @@ export const ButtonPrimary = styled(ButtonLight)`
   }
 `
 
-export const ButtonPrimaryWithIcon = styled(ButtonPrimary)`
+export const ButtonPrimaryLarge = styled(ButtonPrimary)`
   color: ${baseTheme.colors.light};
   background: ${baseTheme.colors.primary};
 
@@ -56,7 +50,7 @@ export const ButtonPrimaryWithIcon = styled(ButtonPrimary)`
   }
 `
 
-export const ButtonOutlineWithIcon = styled(ButtonPrimaryWithIcon)`
+export const ButtonOutlineWide = styled(ButtonPrimaryLarge)`
   color: ${baseTheme.colors.primary};
   background-color: transparent;
   border: 1.5px solid ${baseTheme.colors.primary};
