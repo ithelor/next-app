@@ -3,9 +3,14 @@ export const baseTheme = {
     primary: '#5DAAFF',
     accent: '#2876CC',
     light: '#FFFFFF',
+    lightAccent: '#F8FAFF',
 
-    background: '#E5E5E5',
-    text: '#606F7A'
+    text: '#606F7A',
+    textInactive: '#B7B7B7',
+
+    borderLight: '#EBEBEB',
+    borderDark: '#DEDEDE',
+    background: '#eff3f9'
   },
 
   shadows: {
@@ -32,6 +37,10 @@ export const baseTheme = {
         padding: '19px 35px',
         borderRadius: '5px'
       }
+    },
+
+    select: {
+      padding: '1.5rem 1rem'
     }
   }
 }

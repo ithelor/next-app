@@ -1,33 +1,39 @@
 import React from 'react'
+import { components } from 'react-select'
+
+import DropdownIcon from 'public/arrowDownDropdown.svg'
 
 import * as S from './styles'
 
 interface ISelect {
-  label: string
-  data: string[]
+  caption: string
   ariaLabel: string
+  width: string
+  options: {
+    value: string
+    label: string
+  }[]
+}
+
+const DropdownIndicator = (props: any) => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <DropdownIcon />
+    </components.DropdownIndicator>
+  )
 }
 
 export const Select = (props: ISelect) => {
-  // hides selected option in the dropdown
-  const [selectedIndex, setSelectedIndex] = React.useState(0)
-  const selectRef = React.useRef<HTMLSelectElement>(null)
-
   return (
-    <S.Container>
-      <S.Label htmlFor={props.label}>{props.label}</S.Label>
+    <S.Container width={props.width}>
       <S.Select
-        id={props.label}
-        ref={selectRef}
-        aria-label={props.ariaLabel}
-        onChange={() => setSelectedIndex(selectRef.current!.selectedIndex)}
-      >
-        {props.data.map((item, index) => (
-          <option key={item} value={item} hidden={selectedIndex === index}>
-            {item}
-          </option>
-        ))}
-      </S.Select>
+        classNamePrefix="Select"
+        components={{ DropdownIndicator }}
+        options={props.options}
+        defaultValue={props.options[0]}
+        hideSelectedOptions={true}
+        isSearchable={false}
+      />
     </S.Container>
   )
 }
