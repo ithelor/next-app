@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 const where = encodeURIComponent(
   JSON.stringify({
     population: {
-      $gte: 100000
+      $gte: 1000000
     }
   })
 )
@@ -13,15 +13,13 @@ const getCities = async () => {
     `https://parseapi.back4app.com/classes/Russia_City?limit=214&order=name&keys=name&where=${where}`,
     {
       headers: {
-        'X-Parse-Application-Id': process.env.APP_ID!,
+        'X-Parse-Application-Id': process.env.B4A_APP_ID!,
         'X-Parse-REST-API-Key': process.env.REST_KEY!
       }
     }
   )
 
-  const cities = (await response.json()).results
-
-  return cities
+  return (await response.json()).results
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
