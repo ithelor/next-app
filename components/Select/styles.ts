@@ -7,20 +7,34 @@ interface IContainer {
   width: string
 }
 
+interface ISelect {
+  isForDisplay?: boolean
+}
+
 export const Container = styled.div<IContainer>`
   width: ${(props) => props.width};
 
-  border-left: 1px solid ${baseTheme.colors.borderDark};
+  /* :last-of-type {
+    border-left: 1px solid ${baseTheme.colors.borderDark};
+  } */
 `
 
-export const Select = styled(ReactSelect)`
+export const Select = styled(ReactSelect)<ISelect>`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 15px;
 
   color: ${baseTheme.colors.text};
 
-  .Select {
+  .react-select {
+    &__input-container {
+      color: ${baseTheme.colors.text};
+    }
+
+    &__value-container {
+      padding: 0;
+    }
+
     &__control {
       display: flex;
       justify-content: center;
@@ -36,9 +50,10 @@ export const Select = styled(ReactSelect)`
     }
 
     &__single-value {
-      text-align: center;
+      text-align: ${(props) => props.isForDisplay};
 
-      color: ${baseTheme.colors.text};
+      color: ${(props) =>
+        props.isForDisplay ? baseTheme.colors.textInactive : baseTheme.colors.text};
     }
 
     &__indicator-separator {
@@ -57,13 +72,12 @@ export const Select = styled(ReactSelect)`
       overflow: hidden;
 
       &-list {
-        text-align: center;
         padding: 0;
       }
     }
 
     &__option {
-      padding: ${baseTheme.sizes.select.padding};
+      padding: ${baseTheme.sizes.select.menu.padding};
       border-top: 1px solid ${baseTheme.colors.borderLight};
 
       &--is-focused {

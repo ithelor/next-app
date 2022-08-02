@@ -30,7 +30,7 @@ export const baseTheme = {
         borderRadius: '3px'
       },
       large: {
-        padding: '25px 39px',
+        padding: '18px 39px',
         borderRadius: '3px'
       },
       wide: {
@@ -40,7 +40,11 @@ export const baseTheme = {
     },
 
     select: {
-      padding: '1.5rem 1rem'
+      padding: '0.8rem 1.5rem',
+
+      menu: {
+        padding: '1.5rem'
+      }
     }
   }
 }
