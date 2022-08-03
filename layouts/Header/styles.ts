@@ -7,7 +7,7 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  padding: 20px 60px;
+  padding: ${baseTheme.sizes.header.padding.vertical} ${baseTheme.sizes.header.padding.horizontal};
 
   background-color: transparent;
 `

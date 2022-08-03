@@ -17,10 +17,9 @@ export const ButtonLight = styled.button`
   background-color: ${baseTheme.colors.light};
   box-shadow: ${baseTheme.shadows.normal};
 
-  transition: all ${baseTheme.animations.durations.default} ease-out;
+  transition: all ${baseTheme.animations.durations.default};
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: ${baseTheme.colors.light};
     background-color: ${baseTheme.colors.primary};
   }
@@ -33,8 +32,7 @@ export const ButtonPrimary = styled(ButtonLight)`
   color: ${baseTheme.colors.light};
   background: ${baseTheme.colors.primary};
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: ${baseTheme.colors.accent};
   }
 `

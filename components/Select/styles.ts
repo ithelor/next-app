@@ -13,10 +13,6 @@ interface ISelect {
 
 export const Container = styled.div<IContainer>`
   width: ${(props) => props.width};
-
-  /* :last-of-type {
-    border-left: 1px solid ${baseTheme.colors.borderDark};
-  } */
 `
 
 export const Select = styled(ReactSelect)<ISelect>`
@@ -50,7 +46,7 @@ export const Select = styled(ReactSelect)<ISelect>`
     }
 
     &__single-value {
-      text-align: ${(props) => props.isForDisplay};
+      text-align: ${(props) => props.isForDisplay && 'center'};
 
       color: ${(props) =>
         props.isForDisplay ? baseTheme.colors.textInactive : baseTheme.colors.text};
