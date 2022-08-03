@@ -1,16 +1,12 @@
 import React from 'react'
+
 import { Select, ButtonPrimaryLarge } from 'components'
+
+import { useApi } from 'lib/ApiContext'
 
 import ArrowRight from 'public/arrowRight.svg'
 
-import { ICity, IExchange } from 'models'
-
 import * as S from './styles'
-
-interface IControls {
-  cities: ICity[]
-  exchange: IExchange
-}
 
 const currencies = [
   { value: 'USD', label: 'USD' },
@@ -18,12 +14,14 @@ const currencies = [
   { value: 'RUB', label: 'RUB' }
 ]
 
-export const Controls = (props: IControls) => {
-  const cities = props.cities.map((city) => ({ value: city.objectId, label: city.name }))
+export const Controls = () => {
+  const api = useApi()
+
+  const cities = api!.cities.map((city) => ({ value: city.objectId, label: city.name }))
 
   const exchange = [
-    { value: 'USD', label: props.exchange.Valute.USD.Value / props.exchange.Valute.USD.Nominal },
-    { value: 'CNY', label: props.exchange.Valute.CNY.Value / props.exchange.Valute.CNY.Nominal },
+    { value: 'USD', label: api?.exchange.Valute.USD.Value! / api?.exchange.Valute.USD.Nominal! },
+    { value: 'CNY', label: api?.exchange.Valute.CNY.Value! / api?.exchange.Valute.CNY.Nominal! },
     { value: 'RUB', label: 1 }
   ]
 
@@ -78,7 +76,7 @@ export const Controls = (props: IControls) => {
           <Select
             ariaLabel="Exchange rate"
             role="display"
-            width="120px"
+            width="140px"
             options={exchange}
             value={{
               value: exchangeOption.value,
