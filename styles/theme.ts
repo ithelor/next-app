@@ -46,5 +46,13 @@ export const baseTheme = {
         padding: '1.5rem'
       }
     }
+  },
+
+  animations: {
+    durations: {
+      short: '0.1s',
+      shorter: '0.2s',
+      default: '0.3s'
+    }
   }
 }

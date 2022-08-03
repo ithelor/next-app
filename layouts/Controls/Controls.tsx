@@ -27,44 +27,55 @@ export const Controls = (props: IControls) => {
     { value: 'RUB', label: 1 }
   ]
 
-  const [selectedOption, setSelectedOption] = React.useState<
-    { value: string; label: number } | undefined
-  >(exchange[0])
+  const [selectedCurrency, setSelectedCurrency] = React.useState<typeof exchange[0] | undefined>(
+    exchange[0]
+  )
+  const [hoveredSelect, setHoveredSelect] = React.useState(0)
 
   const exchangeOption =
-    exchange.find((item) => item.value === selectedOption?.value) || exchange[0]
+    exchange.find((item) => item.value === selectedCurrency?.value) || exchange[0]
+
+  const hover = (index: number) => ({
+    onMouseEnter: () => setHoveredSelect(index),
+    onMouseLeave: () => setHoveredSelect(0)
+  })
 
   return (
     <>
       <S.Controls>
-        <S.Label htmlFor="">Откуда</S.Label>
-        <S.Label htmlFor="">Куда</S.Label>
-        <S.Label htmlFor="">Валюта</S.Label>
-        <S.Label htmlFor="">Курс</S.Label>
-
-        <S.Wrapper>
-          <Select caption="Откуда" ariaLabel="From" role="search" width="170px" options={cities} />
+        <S.Label htmlFor="From" isActive={hoveredSelect === 1}>
+          Откуда
+        </S.Label>
+        <S.Wrapper {...hover(1)}>
+          <Select ariaLabel="From" role="search" width="170px" options={cities} />
         </S.Wrapper>
 
-        <S.Wrapper>
-          <Select caption="Куда" ariaLabel="Where" width="200px" options={cities} />
+        <S.Label htmlFor="Where" isActive={hoveredSelect === 2}>
+          Куда
+        </S.Label>
+        <S.Wrapper {...hover(2)}>
+          <Select ariaLabel="Where" width="200px" options={cities} />
         </S.Wrapper>
 
-        <S.Wrapper>
+        <S.Label htmlFor="Currency" isActive={hoveredSelect === 3}>
+          Валюта
+        </S.Label>
+        <S.Wrapper {...hover(3)}>
           <Select
-            caption="Валюта"
             ariaLabel="Currency"
             width="110px"
             options={currencies}
-            onChange={(selectedOption) =>
-              setSelectedOption(exchange.find((item) => item.value === selectedOption.value))
+            onChange={(selectedCurrency) =>
+              setSelectedCurrency(exchange.find((item) => item.value === selectedCurrency.value))
             }
           />
         </S.Wrapper>
 
-        <S.Wrapper>
+        <S.Label htmlFor="Exchange rate" isActive={hoveredSelect === 4}>
+          Курс
+        </S.Label>
+        <S.Wrapper {...hover(4)}>
           <Select
-            caption="Курс"
             ariaLabel="Exchange rate"
             role="display"
             width="120px"
@@ -75,12 +86,13 @@ export const Controls = (props: IControls) => {
             }}
           />
         </S.Wrapper>
-      </S.Controls>
 
-      <ButtonPrimaryLarge ariaLabel="Next">
-        Далее
-        <ArrowRight />
-      </ButtonPrimaryLarge>
+        <hr onMouseEnter={() => console.log('😐')} />
+        <ButtonPrimaryLarge ariaLabel="Next">
+          Далее
+          <ArrowRight />
+        </ButtonPrimaryLarge>
+      </S.Controls>
     </>
   )
 }
