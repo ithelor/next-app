@@ -6,16 +6,16 @@ import DropdownIcon from 'public/arrowDownDropdown.svg'
 import * as S from './styles'
 
 interface ISelect {
-  caption: string
   ariaLabel: string
   role?: 'search' | 'select' | 'display'
   width: string
+  value?: { value: string; label: string | number }
+  onChange?: (selectedOption: any) => void
+
   options: {
     value: string | number
     label: string | number
   }[]
-  onChange?: (selectedOption: any) => void
-  value?: { value: string; label: string | number }
 }
 
 // if role=search & no input don't display menu
@@ -65,6 +65,8 @@ export const Select = (props: ISelect) => {
   return (
     <S.Container width={props.width}>
       <S.Select
+        instanceId={props.ariaLabel}
+        aria-label={props.ariaLabel}
         classNamePrefix="react-select"
         hideSelectedOptions={true}
         noOptionsMessage={() => null}
