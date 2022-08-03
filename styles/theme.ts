@@ -24,13 +24,21 @@ export const baseTheme = {
   },
 
   sizes: {
+    header: {
+      height: '149px',
+      padding: {
+        horizontal: '97px',
+        vertical: '49px'
+      }
+    },
+
     buttons: {
       normal: {
-        padding: '14px 30px',
+        padding: '14px 22px',
         borderRadius: '3px'
       },
       large: {
-        padding: '18px 39px',
+        padding: '18px 28px',
         borderRadius: '3px'
       },
       wide: {
@@ -40,7 +48,7 @@ export const baseTheme = {
     },
 
     select: {
-      padding: '0.8rem 1.5rem',
+      padding: '0.75rem 1.5rem',
 
       menu: {
         padding: '1.5rem'
