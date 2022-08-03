@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { baseTheme } from 'styles/theme'
 
 interface IContainer {
-  width: string
+  width?: string
 }
 
 interface ISelect {
