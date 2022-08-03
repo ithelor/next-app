@@ -17,7 +17,7 @@ export const ButtonLight = styled.button`
   background-color: ${baseTheme.colors.light};
   box-shadow: ${baseTheme.shadows.normal};
 
-  transition: all 0.2s;
+  transition: all ${baseTheme.animations.durations.default} ease-out;
 
   &:hover,
   &:focus {
@@ -43,6 +43,7 @@ export const ButtonPrimaryLarge = styled(ButtonPrimary)`
   color: ${baseTheme.colors.light};
   background: ${baseTheme.colors.primary};
 
+  min-width: max-content;
   padding: ${baseTheme.sizes.buttons.large.padding};
 
   svg {
