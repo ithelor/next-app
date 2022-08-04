@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { ThemeProvider, Global } from '@emotion/react'
 import type { NextPage } from 'next'
 
-import { Header, Main } from 'layouts'
+import { Header, Landing } from 'layouts'
 
 import ApiProvider from 'lib/ApiContext'
 
@@ -30,7 +30,7 @@ const Home: NextPage<IHome> = (props) => (
       <Header />
 
       <ApiProvider value={{ cities: props.cities, exchange: props.exchange }}>
-        <Main />
+        <Landing />
       </ApiProvider>
     </div>
   </ThemeProvider>

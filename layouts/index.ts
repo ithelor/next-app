@@ -1,3 +1,3 @@
 export { Controls } from './Controls'
 export { Header } from './Header'
-export { Main } from './Main'
+export { Landing } from './Landing'

@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 import { baseTheme } from 'styles/theme'
 
-export const Main = styled.main`
+export const Landing = styled.main`
   display: flex;
   flex-direction: column;
   gap: 3rem;

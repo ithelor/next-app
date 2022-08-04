@@ -2,8 +2,8 @@ import { Controls } from 'layouts'
 
 import * as S from './styles'
 
-export const Main = () => (
-  <S.Main>
+export const Landing = () => (
+  <S.Landing>
     <h1>
       Рассчитайте
       <br />
@@ -11,5 +11,5 @@ export const Main = () => (
     </h1>
 
     <Controls />
-  </S.Main>
+  </S.Landing>
 )
