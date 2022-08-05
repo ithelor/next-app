@@ -3,22 +3,29 @@ import styled from '@emotion/styled'
 
 import { baseTheme } from 'styles/theme'
 
-interface IContainer {
-  width?: string
+import { ISelect } from './Select'
+
+interface IContainerStyled {
+  width?: ISelect['width']
 }
 
-interface ISelect {
-  isForDisplay?: boolean
-}
-
-export const Container = styled.div<IContainer>`
-  width: ${(props) => props.width};
+export const Container = styled.div<IContainerStyled>`
+  min-width: ${(props) => props.width};
+  width: max-content;
 `
 
-export const Select = styled(ReactSelect)<ISelect>`
+interface ISelectStyled {
+  isForDisplay?: ISelect['isForDisplay']
+  variant?: ISelect['variant']
+  isOptionsCentered?: ISelect['isOptionsCentered']
+}
+
+export const Select = styled(ReactSelect)<ISelectStyled>`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 15px;
+
+  padding: ${(props) => props.variant === 'default' && '0.6rem 0'};
 
   color: ${baseTheme.colors.text};
 
@@ -75,6 +82,7 @@ export const Select = styled(ReactSelect)<ISelect>`
     &__option {
       padding: ${baseTheme.sizes.select.menu.padding};
       border-top: 1px solid ${baseTheme.colors.borderLight};
+      text-align: ${(props) => props.isOptionsCentered && 'center'};
 
       &--is-focused {
         background-color: ${baseTheme.colors.lightAccent};

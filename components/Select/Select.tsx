@@ -5,12 +5,17 @@ import DropdownIcon from 'public/arrowDownDropdown.svg'
 
 import * as S from './styles'
 
-interface ISelect {
+export interface ISelect {
   ariaLabel: string
   role?: 'search' | 'select' | 'display'
   width?: string
   value?: { value: string; label: string | number }
   defaultValue?: { value: string; label: string | number }
+
+  isForDisplay?: boolean
+  variant?: 'default' | 'compact'
+  isOptionsCentered?: boolean
+  isSearchable?: boolean
 
   options: {
     value: string | number
@@ -20,7 +25,7 @@ interface ISelect {
   onChange?: (selectedOption: any) => void
 }
 
-// if role=search & no input don't display menu
+// if role=search & no input don't display the menu
 const Menu = (props: JSX.IntrinsicAttributes & MenuProps<unknown, boolean, GroupBase<unknown>>) =>
   props.selectProps.inputValue.length > 0 ? <components.Menu {...props} /> : null
 
@@ -74,8 +79,11 @@ export const Select = (props: ISelect) => {
         aria-label={props.ariaLabel}
         classNamePrefix="react-select"
         hideSelectedOptions={true}
+        isOptionsCentered={props.isOptionsCentered}
+        isSearchable={props.isSearchable}
         options={props.options}
         onChange={props.onChange}
+        variant={props.variant}
         {...configs[props.role || 'select']}
       />
     </S.Container>
