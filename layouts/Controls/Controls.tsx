@@ -139,7 +139,7 @@ export const Controls = (props: IControls) => {
         </S.Wrapper>
       </S.Controls>
       {props.variant === 'landing' && (
-        <ButtonPrimaryLarge ariaLabel="Next" onClick={() => router.push('/select')}>
+        <ButtonPrimaryLarge ariaLabel="Next" onClick={() => router.push('/selection')}>
           Далее
           <ArrowRight />
         </ButtonPrimaryLarge>

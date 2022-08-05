@@ -11,7 +11,7 @@ import { baseTheme } from 'styles/theme'
 
 import { ICity, IExchange } from 'models'
 
-interface IHome {
+export interface IHome {
   cities: ICity[]
   exchange: IExchange
 }
