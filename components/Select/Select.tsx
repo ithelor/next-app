@@ -10,6 +10,7 @@ interface ISelect {
   role?: 'search' | 'select' | 'display'
   width?: string
   value?: { value: string; label: string | number }
+  defaultValue?: { value: string; label: string | number }
 
   options: {
     value: string | number
@@ -39,7 +40,7 @@ export const Select = (props: ISelect) => {
         DropdownIndicator: null,
         Menu
       },
-      defaultValue: () => null,
+      defaultValue: props.defaultValue ?? (() => null),
       noOptionsMessage: () => null,
       placeholder: '',
       openMenuOnClick: false,
@@ -48,7 +49,7 @@ export const Select = (props: ISelect) => {
 
     select: {
       components: { DropdownIndicator },
-      defaultValue: props.options[0]
+      defaultValue: props.defaultValue ?? props.options[0]
     },
 
     display: {
@@ -60,7 +61,8 @@ export const Select = (props: ISelect) => {
       isDisabled: true,
       value: props.value,
 
-      isForDisplay: true // custom prop
+      // custom prop
+      isForDisplay: true
     }
   }
 
@@ -72,7 +74,6 @@ export const Select = (props: ISelect) => {
         aria-label={props.ariaLabel}
         classNamePrefix="react-select"
         hideSelectedOptions={true}
-        // isSearchable={false}
         options={props.options}
         onChange={props.onChange}
         {...configs[props.role || 'select']}
