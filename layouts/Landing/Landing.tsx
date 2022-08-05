@@ -4,12 +4,14 @@ import * as S from './styles'
 
 export const Landing = () => (
   <S.Landing>
-    <h1>
-      Рассчитайте
-      <br />
-      стоимость доставки из Китая
-    </h1>
+    <S.Container>
+      <h1>
+        Рассчитайте
+        <br />
+        стоимость доставки из Китая
+      </h1>
 
-    <Controls />
+      <Controls variant="landing" />
+    </S.Container>
   </S.Landing>
 )

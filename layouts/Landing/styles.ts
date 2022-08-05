@@ -5,10 +5,10 @@ import { baseTheme } from 'styles/theme'
 export const Landing = styled.main`
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  justify-content: center;
 
   height: calc(100vh - ${baseTheme.sizes.header.height});
-  padding: 6rem ${baseTheme.sizes.header.padding.horizontal} 0;
+  padding: 0 ${baseTheme.sizes.header.padding.horizontal} 0;
 
   background-image: url('/background.svg');
   background-repeat: no-repeat;
@@ -23,5 +23,12 @@ export const Landing = styled.main`
     letter-spacing: -1px;
 
     color: ${baseTheme.colors.text};
+
+    margin-bottom: 6rem;
   }
+`
+
+export const Container = styled.section`
+  position: relative;
+  bottom: 10%;
 `
