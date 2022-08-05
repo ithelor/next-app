@@ -26,6 +26,8 @@ export class ParamsStore {
     })
   }
 
+  isSet = () => this.from && this.to && this.currency && this.exchangeRate
+
   setFrom = (value: string) => (this.from = value)
   setTo = (value: string) => (this.to = value)
   setCurrency = (value: string) => (this.currency = value)
