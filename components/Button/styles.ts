@@ -2,6 +2,11 @@ import styled from '@emotion/styled'
 
 import { baseTheme } from 'styles/theme'
 
+export const ButtonIcon = styled.button`
+  cursor: pointer;
+  background: none;
+`
+
 export const ButtonLight = styled.button`
   cursor: pointer;
 
@@ -15,7 +20,7 @@ export const ButtonLight = styled.button`
 
   color: ${baseTheme.colors.text};
   background-color: ${baseTheme.colors.light};
-  box-shadow: ${baseTheme.shadows.normal};
+  box-shadow: ${baseTheme.shadows.contact};
 
   transition: all ${baseTheme.animations.durations.default};
 
