@@ -2,7 +2,6 @@ import Head from 'next/head'
 import { ThemeProvider, Global } from '@emotion/react'
 import type { NextPage } from 'next'
 
-import ApiProvider from 'lib/ApiContext'
 import { useParamsStore } from 'lib/RootStoreContext'
 
 import { IHome } from 'pages'
@@ -12,7 +11,7 @@ import { Params } from 'components'
 import GlobalStyles from 'styles/global'
 import { baseTheme } from 'styles/theme'
 
-const Select: NextPage<IHome> = (props) => {
+const Select: NextPage<IHome> = () => {
   const paramsStore = useParamsStore()
 
   return (
@@ -26,32 +25,10 @@ const Select: NextPage<IHome> = (props) => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <ApiProvider value={{ cities: props.cities, exchange: props.exchange }}>
-          <Header params={paramsStore.isSet() && <Params variant="editable" />} />
-        </ApiProvider>
+        <Header params={paramsStore.isSet() && <Params variant="editable" />} />
       </div>
     </ThemeProvider>
   )
 }
 
-export const getStaticProps = async () => {
-  const citiesResponse = await fetch(`${process.env.SERVER_URL}/api/cities`, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
-  })
-
-  const exchangeResponse = await fetch(`${process.env.SERVER_URL}/api/exchange`, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
-  })
-
-  const cities = await citiesResponse.json()
-  const exchange = await exchangeResponse.json()
-
-  return {
-    props: { cities, exchange }
-  }
-}
-
 export default Select
-

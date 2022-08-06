@@ -16,8 +16,6 @@ const ApiContext = React.createContext<IApiContext | null>(null)
 
 export const useApi = () => React.useContext(ApiContext)
 
-const ApiProvider = (props: IApiProvider) => (
+export const ApiProvider = (props: IApiProvider) => (
   <ApiContext.Provider value={props.value}>{props.children}</ApiContext.Provider>
 )
-
-export default ApiProvider

@@ -4,7 +4,7 @@ import type { NextPage } from 'next'
 
 import { Header, Landing } from 'layouts'
 
-import ApiProvider from 'lib/ApiContext'
+import { ApiProvider, useApi } from 'lib/ApiContext'
 
 import GlobalStyles from 'styles/global'
 import { baseTheme } from 'styles/theme'
@@ -16,7 +16,7 @@ export interface IHome {
   exchange: IExchange
 }
 
-const Home: NextPage<IHome> = (props) => (
+const Home: NextPage<IHome> = () => (
   <ThemeProvider theme={baseTheme}>
     <Global styles={GlobalStyles} />
 
@@ -28,31 +28,9 @@ const Home: NextPage<IHome> = (props) => (
       </Head>
 
       <Header />
-
-      <ApiProvider value={{ cities: props.cities, exchange: props.exchange }}>
-        <Landing />
-      </ApiProvider>
+      <Landing />
     </div>
   </ThemeProvider>
 )
-
-export const getStaticProps = async () => {
-  const citiesResponse = await fetch(`${process.env.SERVER_URL}/api/cities`, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
-  })
-
-  const exchangeResponse = await fetch(`${process.env.SERVER_URL}/api/exchange`, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
-  })
-
-  const cities = await citiesResponse.json()
-  const exchange = await exchangeResponse.json()
-
-  return {
-    props: { cities, exchange }
-  }
-}
 
 export default Home
