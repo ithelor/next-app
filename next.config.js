@@ -3,6 +3,9 @@
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['cgifurniture.com']
+  },
 
   webpack: (config) => {
     config.module.rules.push({
