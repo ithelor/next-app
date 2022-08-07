@@ -10,14 +10,19 @@ export const baseTheme = {
 
     borderLight: '#EBEBEB',
     borderDark: '#DEDEDE',
-    background: '#eff3f9'
+    borderSelect: '#E2E4EA',
+
+    background: '#eff3f9',
+
+    scroll: { accent: '#BDCBE0', background: '#8C8C8C26' }
   },
 
   shadows: {
     normal: '0px 4px 40px 0px #2E50571F',
     alt: '0px 4px 40px 0px #0000000A',
     button: '0px 4px 40px 0px #5DAAFF4A',
-    contact: '0px 4px 40px 0px #2E50571F'
+    contact: '0px 4px 40px 0px #2E50571F',
+    input: '0px 4px 40px 0px #0000000f'
   },
 
   media: {

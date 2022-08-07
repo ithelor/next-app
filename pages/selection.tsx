@@ -5,7 +5,7 @@ import type { NextPage } from 'next'
 import { useParamsStore } from 'lib/RootStoreContext'
 
 import { IHome } from 'pages'
-import { Header } from 'layouts'
+import { Header, Selection } from 'layouts'
 import { Params } from 'components'
 
 import GlobalStyles from 'styles/global'
@@ -26,6 +26,7 @@ const Select: NextPage<IHome> = () => {
         </Head>
 
         <Header params={paramsStore.isSet() && <Params variant="editable" />} />
+        <Selection />
       </div>
     </ThemeProvider>
   )
