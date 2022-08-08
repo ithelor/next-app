@@ -36,6 +36,7 @@ export const ButtonPrimary = styled(ButtonLight)`
 
   color: ${baseTheme.colors.light};
   background: ${baseTheme.colors.primary};
+  box-shadow: ${baseTheme.shadows.primary};
 
   &:hover {
     background-color: ${baseTheme.colors.accent};

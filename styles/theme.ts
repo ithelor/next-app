@@ -22,6 +22,7 @@ export const baseTheme = {
     alt: '0px 4px 40px 0px #0000000A',
     button: '0px 4px 40px 0px #5DAAFF4A',
     contact: '0px 4px 40px 0px #2E50571F',
+    primary: '0px 4px 40px 0px #00000026',
     input: '0px 4px 40px 0px #0000000f'
   },
 
