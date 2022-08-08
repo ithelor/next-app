@@ -58,7 +58,7 @@ export const Selection = () => {
 
   return (
     <S.Selection>
-      <section>
+      <section className="select">
         <h2>Выберите мебель, которую нужно перевезти</h2>
 
         <Search onChange={onSearchChange} onSearch={onSearchClick} />
@@ -76,33 +76,37 @@ export const Selection = () => {
         </div>
       </section>
 
-      <section>
+      <section className="fill">
         <h2>Затем заполните следующие поля выбранного элемента:</h2>
 
         {selection === undefined ? (
           <h3>Вы не выбрали пока ни одного элемента.</h3>
         ) : (
-          <SelectionEntry variant="selected">{furniture[selection]}</SelectionEntry>
+          <>
+            <SelectionEntry variant="selected">{furniture[selection]}</SelectionEntry>
+
+            <span className="quantity">
+              Кол-во:
+              <span className="controls">
+                <ButtonIcon ariaLabel="Decrease">{<MinusIcon />}</ButtonIcon>
+                <input type="number" defaultValue="1" />
+                <ButtonIcon ariaLabel="Increase">{<PlusIcon />}</ButtonIcon>
+              </span>
+            </span>
+
+            <fieldset>
+              <input type="text" placeholder="Объем, м3" />
+              <input type="text" placeholder="Общая масса нетто, кг" />
+              <input type="text" placeholder="Общая масса брутто, кг" />
+              <input type="text" placeholder="Стоимость одной единицы" />
+            </fieldset>
+
+            <span className="buttons">
+              <ButtonPrimary ariaLabel="Reset">Сбросить</ButtonPrimary>
+              <ButtonPrimary ariaLabel="Add">Добавить</ButtonPrimary>
+            </span>
+          </>
         )}
-
-        <span>
-          Кол-во:
-          <ButtonIcon ariaLabel="Decrease">{<MinusIcon />}</ButtonIcon>
-          <input type="number" defaultValue="1" />
-          <ButtonIcon ariaLabel="Increase">{<PlusIcon />}</ButtonIcon>
-        </span>
-
-        <fieldset>
-          <input type="text" placeholder="Объем, м3" />
-          <input type="text" placeholder="Общая масса нетто, кг" />
-          <input type="text" placeholder="Общая масса брутто, кг" />
-          <input type="text" placeholder="Стоимость одной единицы" />
-        </fieldset>
-
-        <span>
-          <ButtonPrimary ariaLabel="Reset">Сбросить</ButtonPrimary>
-          <ButtonPrimary ariaLabel="Add">Добавить</ButtonPrimary>
-        </span>
       </section>
     </S.Selection>
   )
