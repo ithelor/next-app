@@ -18,8 +18,8 @@ const variants = {
   },
 
   selected: {
-    width: 87,
-    height: 70
+    width: 84,
+    height: 68
   }
 }
 

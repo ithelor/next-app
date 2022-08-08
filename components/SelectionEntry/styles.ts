@@ -34,6 +34,7 @@ export const SelectionEntry = styled.div<ISelectionEntryStyled>`
   }
 
   button {
-    margin: 27px;
+    width: 132px;
+    margin: 22px;
   }
 `

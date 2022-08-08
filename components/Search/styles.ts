@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { baseTheme } from 'styles/theme'
 
 export const Search = styled.div`
-  height: 50px;
+  height: 53px;
 
   display: flex;
   align-items: center;
@@ -17,7 +17,7 @@ export const Search = styled.div`
 
     height: 100%;
     width: 370px;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 3px;
 
     box-shadow: ${baseTheme.shadows.input};
@@ -25,5 +25,9 @@ export const Search = styled.div`
     &::placeholder {
       color: ${baseTheme.colors.textInactive};
     }
+  }
+
+  button {
+    height: 100%;
   }
 `
