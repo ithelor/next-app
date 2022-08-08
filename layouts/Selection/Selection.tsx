@@ -2,6 +2,8 @@ import React from 'react'
 
 import { ButtonIcon, ButtonPrimary, Search, SelectionEntry } from 'components'
 
+import { useProductsStore } from 'lib/RootStoreContext'
+
 import MinusIcon from 'public/minus.svg'
 import PlusIcon from 'public/plus.svg'
 
@@ -56,6 +58,24 @@ export const Selection = () => {
     setSelection(index)
   }
 
+  // handling inputs
+  const productsStore = useProductsStore()
+  const inputsRef = React.useRef<HTMLInputElement[]>([])
+
+  const inputs = {
+    quantity: inputsRef.current[0]?.valueAsNumber,
+    volume: inputsRef.current[1]?.valueAsNumber,
+    netto: inputsRef.current[2]?.valueAsNumber,
+    brutto: inputsRef.current[3]?.valueAsNumber,
+    price: inputsRef.current[4]?.valueAsNumber
+  }
+
+  const resetInputs = () => {
+    inputsRef.current.forEach((input, index) =>
+      index === 0 ? (input.value = '1') : (input.value = '')
+    )
+  }
+
   return (
     <S.Selection>
       <section className="select">
@@ -87,23 +107,67 @@ export const Selection = () => {
 
             <span className="quantity">
               Кол-во:
-              <span className="controls">
-                <ButtonIcon ariaLabel="Decrease">{<MinusIcon />}</ButtonIcon>
-                <input type="number" defaultValue="1" />
-                <ButtonIcon ariaLabel="Increase">{<PlusIcon />}</ButtonIcon>
-              </span>
+              <div className="controls">
+                <ButtonIcon
+                  ariaLabel="Decrease"
+                  onClick={() =>
+                    inputsRef.current[0].valueAsNumber > 1 && inputsRef.current[0].valueAsNumber--
+                  }
+                >
+                  {<MinusIcon />}
+                </ButtonIcon>
+                <input
+                  ref={(element) => inputsRef.current.push(element!)}
+                  type="number"
+                  defaultValue={1}
+                />
+                <ButtonIcon
+                  ariaLabel="Increase"
+                  onClick={() => inputsRef.current[0].valueAsNumber++}
+                >
+                  {<PlusIcon />}
+                </ButtonIcon>
+              </div>
             </span>
 
             <fieldset>
-              <input type="text" placeholder="Объем, м3" />
-              <input type="text" placeholder="Общая масса нетто, кг" />
-              <input type="text" placeholder="Общая масса брутто, кг" />
-              <input type="text" placeholder="Стоимость одной единицы" />
+              <input
+                ref={(element) => inputsRef.current.push(element!)}
+                type="number"
+                placeholder="Объем, м3"
+              />
+              <input
+                ref={(element) => inputsRef.current.push(element!)}
+                type="number"
+                placeholder="Общая масса нетто, кг"
+              />
+              <input
+                ref={(element) => inputsRef.current.push(element!)}
+                type="number"
+                placeholder="Общая масса брутто, кг"
+              />
+              <input
+                ref={(element) => inputsRef.current.push(element!)}
+                type="number"
+                placeholder="Стоимость одной единицы"
+              />
             </fieldset>
 
             <span className="buttons">
-              <ButtonPrimary ariaLabel="Reset">Сбросить</ButtonPrimary>
-              <ButtonPrimary ariaLabel="Add">Добавить</ButtonPrimary>
+              <ButtonPrimary ariaLabel="Reset" onClick={() => resetInputs()}>
+                Сбросить
+              </ButtonPrimary>
+              <ButtonPrimary
+                ariaLabel="Add"
+                onClick={() =>
+                  productsStore.addProduct({
+                    ...inputs,
+                    name: furniture[selection].title
+                  })
+                }
+              >
+                Добавить
+              </ButtonPrimary>
             </span>
           </>
         )}

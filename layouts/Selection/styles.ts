@@ -36,6 +36,20 @@ export const Selection = styled.main`
       text-align: center;
       margin-top: 10rem;
     }
+
+    input {
+      /* Chrome, Safari, Edge, Opera */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      &[type='number'] {
+        -moz-appearance: textfield;
+      }
+    }
   }
 
   .select {
@@ -121,22 +135,9 @@ export const Selection = styled.main`
 
           width: 53px;
           height: 53px;
-          padding: 19px;
           vertical-align: middle;
 
           color: ${baseTheme.colors.text};
-
-          /* Chrome, Safari, Edge, Opera */
-          &::-webkit-outer-spin-button,
-          &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-          }
-
-          /* Firefox */
-          &[type='number'] {
-            -moz-appearance: textfield;
-          }
         }
       }
     }
@@ -158,6 +159,7 @@ export const Selection = styled.main`
         padding: 19px;
         border-radius: 3px;
 
+        color: ${baseTheme.colors.text};
         box-shadow: ${baseTheme.shadows.input};
 
         &::placeholder {

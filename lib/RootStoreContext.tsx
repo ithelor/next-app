@@ -31,6 +31,11 @@ export const useParamsStore = () => {
   return paramsStore
 }
 
+export const useProductsStore = () => {
+  const { productsStore } = useRootStore()
+  return productsStore
+}
+
 export const useRootStore = () => {
   const context = React.useContext(StoreContext)
 
