@@ -4,14 +4,13 @@ import type { NextPage } from 'next'
 
 import { useParamsStore } from 'lib/RootStoreContext'
 
-import { IHome } from 'pages'
 import { Header, Selection } from 'layouts'
 import { Params } from 'components'
 
 import GlobalStyles from 'styles/global'
 import { baseTheme } from 'styles/theme'
 
-const Select: NextPage<IHome> = () => {
+const Select: NextPage = () => {
   const paramsStore = useParamsStore()
 
   return (
