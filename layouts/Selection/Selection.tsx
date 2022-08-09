@@ -62,14 +62,6 @@ export const Selection = () => {
   const productsStore = useProductsStore()
   const inputsRef = React.useRef<HTMLInputElement[]>([])
 
-  const inputs = {
-    quantity: inputsRef.current[0]?.valueAsNumber,
-    volume: inputsRef.current[1]?.valueAsNumber,
-    netto: inputsRef.current[2]?.valueAsNumber,
-    brutto: inputsRef.current[3]?.valueAsNumber,
-    price: inputsRef.current[4]?.valueAsNumber
-  }
-
   const resetInputs = () => {
     inputsRef.current.forEach((input, index) =>
       index === 0 ? (input.value = '1') : (input.value = '')
@@ -161,8 +153,12 @@ export const Selection = () => {
                 ariaLabel="Add"
                 onClick={() =>
                   productsStore.addProduct({
-                    ...inputs,
-                    name: furniture[selection].title
+                    name: furniture[selection].title,
+                    quantity: inputsRef.current[0].valueAsNumber,
+                    volume: inputsRef.current[1].valueAsNumber,
+                    netto: inputsRef.current[2].valueAsNumber,
+                    brutto: inputsRef.current[3].valueAsNumber,
+                    price: inputsRef.current[4].valueAsNumber
                   })
                 }
               >
