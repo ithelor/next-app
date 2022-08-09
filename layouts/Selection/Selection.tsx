@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 import { ButtonIcon, ButtonPrimary, Search, SelectionEntry } from 'components'
 
@@ -32,6 +33,7 @@ export const Selection = () => {
   }
 
   // handling inputs
+  const router = useRouter()
   const productsStore = useProductsStore()
   const inputsRef = React.useRef<HTMLInputElement[]>([])
 
@@ -124,7 +126,7 @@ export const Selection = () => {
               </ButtonPrimary>
               <ButtonPrimary
                 ariaLabel="Add"
-                onClick={() =>
+                onClick={() => {
                   productsStore.addProduct({
                     name: furniture[selection].title,
                     quantity: inputsRef.current[0].valueAsNumber,
@@ -133,7 +135,9 @@ export const Selection = () => {
                     brutto: inputsRef.current[3].valueAsNumber,
                     price: inputsRef.current[4].valueAsNumber
                   })
-                }
+
+                  router.push('/checkout')
+                }}
               >
                 Добавить
               </ButtonPrimary>
