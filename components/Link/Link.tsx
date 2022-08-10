@@ -1,12 +1,15 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 import * as S from './styles'
 
 interface ILink {
-  ariaLabel: string
+  to: string
   children: React.ReactNode
 }
 
 export const Link = (props: ILink) => {
-  return <S.Link aria-label={props.ariaLabel}>{props.children}</S.Link>
+  const router = useRouter()
+
+  return <S.Link onClick={() => router.push(props.to)}>{props.children}</S.Link>
 }
