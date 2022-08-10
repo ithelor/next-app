@@ -32,7 +32,7 @@ export const Table = styled.table`
       content: '';
 
       display: block;
-      height: 1.5em;
+      height: 1em;
     }
 
     tr {
@@ -47,7 +47,7 @@ export const Table = styled.table`
           background-color: ${baseTheme.colors.lightAccent};
         }
 
-        :nth-child(2) {
+        :nth-of-type(2) {
           border-radius: 5px 0 0 5px;
         }
 
