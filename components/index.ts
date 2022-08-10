@@ -6,6 +6,7 @@ export {
   ButtonOutlineWide
 } from './Button'
 export { Link } from './Link'
+export { Loader } from './Loader'
 export { Logo } from './Logo'
 export { Params } from './Params'
 export { Search } from './Search'
