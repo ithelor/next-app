@@ -34,6 +34,10 @@ export const ButtonPrimary = styled(ButtonLight)`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
 
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
   color: ${baseTheme.colors.light};
   background: ${baseTheme.colors.primary};
   box-shadow: ${baseTheme.shadows.primary};

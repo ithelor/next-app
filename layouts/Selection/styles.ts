@@ -171,9 +171,8 @@ export const Selection = styled.main`
     .buttons {
       margin-top: 36px;
 
-      button + button {
-        margin-left: 9px;
-      }
+      display: flex;
+      gap: 1rem;
     }
   }
 `
