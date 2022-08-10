@@ -26,8 +26,6 @@ export const Params = (props: IParams) => {
 
   const [variant, setVariant] = React.useState(props.variant)
 
-  console.log(variant)
-
   return (
     <S.Params variant={variant}>
       {variant !== 'editing' ? (
