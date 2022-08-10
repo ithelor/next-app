@@ -17,4 +17,8 @@ export const LeftContainer = styled.span`
   display: flex;
   align-items: center;
   gap: 3rem;
+
+  svg {
+    cursor: pointer;
+  }
 `
