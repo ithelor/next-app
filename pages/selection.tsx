@@ -24,7 +24,8 @@ const Select: NextPage = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <Header params={paramsStore.isSet() && <Params variant="editable" />} />
+        <Header extra={paramsStore.isSet() && <Params variant="editable" />} />
+
         <Selection />
       </div>
     </ThemeProvider>
