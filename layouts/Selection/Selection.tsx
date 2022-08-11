@@ -45,7 +45,7 @@ export const Selection = () => {
 
   return (
     <S.Selection>
-      <section className="select">
+      <section className="select" itemScope itemType="https://schema.org/ItemList">
         <h2>Выберите мебель, которую нужно перевезти</h2>
 
         <Search onChange={onSearchChange} onSearch={onSearchClick} />
@@ -55,7 +55,12 @@ export const Selection = () => {
             <h3>Не найдено</h3>
           ) : (
             searchResults.map((item, index) => (
-              <SelectionEntry key={item.title} onSelect={() => onSelect(index)} variant="list">
+              <SelectionEntry
+                key={item.title}
+                onSelect={() => onSelect(index)}
+                variant="list"
+                itemProp="itemListElement"
+              >
                 {item}
               </SelectionEntry>
             ))

@@ -9,6 +9,7 @@ export interface ISelectionEntry {
   children: { title: string; img: string }
   onSelect?: () => void
   variant?: 'list' | 'selected'
+  itemProp?: string
 }
 
 const variants = {
@@ -24,7 +25,7 @@ const variants = {
 }
 
 export const SelectionEntry = (props: ISelectionEntry) => (
-  <S.SelectionEntry variant={props.variant}>
+  <S.SelectionEntry variant={props.variant} itemProp={props.itemProp}>
     <Image
       alt={props.children.title}
       src={props.children.img}
