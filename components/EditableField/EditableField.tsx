@@ -4,6 +4,8 @@ import { useProductsStore } from 'lib/RootStoreContext'
 
 import { IProduct } from 'stores/ProductsStore'
 
+import { addSpaces } from 'utils'
+
 import PencilIcon from 'public/pencil.svg'
 
 import * as S from './styles'
@@ -13,8 +15,6 @@ export interface IEditableField {
   productToEdit: IProduct
   propertyToEdit: string
 }
-
-const addSpaces = (number: number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
 export const EditableField = (props: IEditableField) => {
   const productsStore = useProductsStore()
@@ -58,7 +58,7 @@ export const EditableField = (props: IEditableField) => {
         {isEditing ? (
           <input
             type="number"
-            defaultValue={props.children}
+            defaultValue={String(props.children)}
             autoFocus={isEditing}
             onChange={(event) => setNewValue(event.target.valueAsNumber)}
           />
