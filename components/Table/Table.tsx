@@ -1,6 +1,7 @@
 import React from 'react'
+import { Observer } from 'mobx-react'
 
-import { ButtonIcon, SelectionEntry } from 'components'
+import { ButtonIcon, EditableField, SelectionEntry } from 'components'
 
 import { useProductsStore } from 'lib/RootStoreContext'
 
@@ -22,8 +23,6 @@ export const head: { [key: string]: string } = {
   price: 'Стоимость единицы'
 }
 
-const addSpaces = (number: number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-
 const getUniqueKey = (pre?: string) => `${pre}. ${new Date().getTime()}`
 
 export const Table = (props: ITable) => {
@@ -39,35 +38,42 @@ export const Table = (props: ITable) => {
           <td>Удалить</td>
         </tr>
       </thead>
-      <tbody>
-        {props.data.map((item, index) => (
-          <tr key={getUniqueKey(item.name)}>
-            {Object.values(item).map((property: string, index) =>
-              index === 0 ? (
-                <td key={getUniqueKey(`${item.name}'s ${Object.keys(item)[index]}`)}>
-                  <SelectionEntry variant="selected">
-                    {furniture.find((item) => item.title === property)!}
-                  </SelectionEntry>
+      <Observer>
+        {() => (
+          <tbody>
+            {props.data.map((item, index) => (
+              <tr key={getUniqueKey(item.name)}>
+                {Object.values(item).map((property: string | number, index) =>
+                  index === 0 ? (
+                    <td key={getUniqueKey(`${item.name}'s ${Object.keys(item)[index]}`)}>
+                      <SelectionEntry variant="selected">
+                        {furniture.find((item) => item.title === property)!}
+                      </SelectionEntry>
+                    </td>
+                  ) : (
+                    <EditableField
+                      key={getUniqueKey(`${item.name}'s ${Object.keys(item)[index]}`)}
+                      productToEdit={item}
+                      propertyToEdit={Object.keys(item)[index]}
+                    >
+                      {property as number}
+                    </EditableField>
+                  )
+                )}
+                <td>
+                  <ButtonIcon
+                    key={getUniqueKey(`${item.name}'s delete button`)}
+                    ariaLabel="Remove"
+                    onClick={() => productsStore.removeProduct(index)}
+                  >
+                    <CrossIcon />
+                  </ButtonIcon>
                 </td>
-              ) : (
-                <td key={getUniqueKey(`${item.name}'s ${Object.keys(item)[index]}`)}>
-                  {(property && addSpaces(Number(property))) || '-'}
-                  {property && index === Object.values(item).length - 1 ? ' руб.' : ''}
-                </td>
-              )
-            )}
-            <td>
-              <ButtonIcon
-                key={getUniqueKey(`${item.name}'s delete button`)}
-                ariaLabel="Remove"
-                onClick={() => productsStore.products.splice(index)}
-              >
-                <CrossIcon />
-              </ButtonIcon>
-            </td>
-          </tr>
-        ))}
-      </tbody>
+              </tr>
+            ))}
+          </tbody>
+        )}
+      </Observer>
     </S.Table>
   )
 }

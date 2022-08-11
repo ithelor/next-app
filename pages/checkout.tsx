@@ -42,7 +42,7 @@ const Select: NextPage = () => {
           )}
         </Observer>
 
-        {productsStore.products.length > 0 && <Checkout />}
+        <Checkout />
       </div>
     </ThemeProvider>
   )

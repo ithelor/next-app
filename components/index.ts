@@ -5,6 +5,7 @@ export {
   ButtonPrimaryLarge,
   ButtonOutlineWide
 } from './Button'
+export { EditableField } from './EditableField'
 export { Link } from './Link'
 export { Loader } from './Loader'
 export { Logo } from './Logo'
