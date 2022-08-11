@@ -76,31 +76,41 @@ export const Checkout = () => {
             <>
               {isFinal ? (
                 <>
-                  <Table data={productsStore.products} withTotal />
-                  <Controls />
-                  <S.Total>
-                    <div className="labels">
-                      <h3>Стоимость доставки:</h3>
-                      <h3>Таможенные платежи:</h3>
-                      <h2>Итого:</h2>
-                    </div>
+                  {productsStore.products.length > 0 ? (
+                    <>
+                      <Table data={productsStore.products} withTotal />
+                      <Controls />
+                      <S.Total>
+                        <div className="labels">
+                          <h3>Стоимость доставки:</h3>
+                          <h3>Таможенные платежи:</h3>
+                          <h2>Итого:</h2>
+                        </div>
 
-                    <div className="costs">
-                      <span>{addSpaces(deliveryCost)} руб.</span>
-                      <span>{addSpaces(customsCost)} руб.</span>
-                      <span>{addSpaces(totalCost)} руб.</span>
-                    </div>
-                  </S.Total>
+                        <div className="costs">
+                          <span>{addSpaces(deliveryCost)} руб.</span>
+                          <span>{addSpaces(customsCost)} руб.</span>
+                          <span>{addSpaces(totalCost)} руб.</span>
+                        </div>
+                      </S.Total>
 
-                  <Controls>
-                    <ButtonOutlineWide ariaLabel="Save" rounder>
-                      Сохранить расчёт
-                      <ArrowRightIcon />
-                    </ButtonOutlineWide>
-                    <ButtonPrimaryLarge ariaLabel="Contact" rounder>
-                      Связаться по доставке
-                    </ButtonPrimaryLarge>
-                  </Controls>
+                      <Controls>
+                        <ButtonOutlineWide ariaLabel="Save" rounder>
+                          Сохранить расчёт
+                          <ArrowRightIcon />
+                        </ButtonOutlineWide>
+                        <ButtonPrimaryLarge ariaLabel="Contact" rounder>
+                          Связаться по доставке
+                        </ButtonPrimaryLarge>
+                      </Controls>
+                    </>
+                  ) : (
+                    <>
+                      <h1>Мебель не добавлена</h1>
+
+                      <Controls variant="absolute" />
+                    </>
+                  )}
                 </>
               ) : (
                 <>
