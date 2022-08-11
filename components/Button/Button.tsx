@@ -18,20 +18,35 @@ export const ButtonLight = (props: IButton) => (
   </S.ButtonLight>
 )
 
+export const ButtonLink = (props: IButton) => (
+  <S.ButtonLink aria-label={props.ariaLabel} onClick={props.onClick}>
+    {props.children}
+  </S.ButtonLink>
+)
+
 export const ButtonPrimary = (props: IButton) => (
   <S.ButtonPrimary aria-label={props.ariaLabel} onClick={props.onClick}>
     {props.children}
   </S.ButtonPrimary>
 )
 
-export const ButtonPrimaryLarge = (props: IButton) => (
-  <S.ButtonPrimaryLarge aria-label={props.ariaLabel} onClick={props.onClick}>
+// спустя 57 часов выяснилось, что где-то border-radius 3px, а где-то 5px 👍
+export interface IButtonLarge extends IButton {
+  rounder?: boolean
+}
+
+export const ButtonPrimaryLarge = (props: IButtonLarge) => (
+  <S.ButtonPrimaryLarge
+    aria-label={props.ariaLabel}
+    rounder={props.rounder}
+    onClick={props.onClick}
+  >
     {props.children}
   </S.ButtonPrimaryLarge>
 )
 
-export const ButtonOutlineWide = (props: IButton) => (
-  <S.ButtonOutlineWide aria-label={props.ariaLabel} onClick={props.onClick}>
+export const ButtonOutlineWide = (props: IButtonLarge) => (
+  <S.ButtonOutlineWide aria-label={props.ariaLabel} rounder={props.rounder} onClick={props.onClick}>
     {props.children}
   </S.ButtonOutlineWide>
 )

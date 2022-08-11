@@ -2,9 +2,20 @@ import styled from '@emotion/styled'
 
 import { baseTheme } from 'styles/theme'
 
+import { IButtonLarge } from './Button'
+
 export const ButtonIcon = styled.button`
   cursor: pointer;
   background: none;
+`
+
+export const ButtonLink = styled(ButtonIcon)`
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -1px;
+
+  color: ${baseTheme.colors.primary};
 `
 
 export const ButtonLight = styled.button`
@@ -38,6 +49,7 @@ export const ButtonPrimary = styled(ButtonLight)`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: ${baseTheme.sizes.buttons.large.padding};
 
   color: ${baseTheme.colors.light};
   background: ${baseTheme.colors.primary};
@@ -48,9 +60,16 @@ export const ButtonPrimary = styled(ButtonLight)`
   }
 `
 
-export const ButtonPrimaryLarge = styled(ButtonPrimary)`
+// спустя 57 часов выяснилось, что где-то border-radius 3px, а где-то 5px 👍
+interface IButtonLargeStyled {
+  rounder?: IButtonLarge['rounder']
+}
+
+export const ButtonPrimaryLarge = styled(ButtonPrimary)<IButtonLargeStyled>`
   color: ${baseTheme.colors.light};
   background: ${baseTheme.colors.primary};
+
+  border-radius: ${(props) => (props.rounder ? '5px' : '3px')};
 
   min-width: max-content;
   padding: ${baseTheme.sizes.buttons.large.padding};
@@ -65,7 +84,6 @@ export const ButtonOutlineWide = styled(ButtonPrimaryLarge)`
   background-color: transparent;
   border: 1.5px solid ${baseTheme.colors.primary};
 
-  border-radius: ${baseTheme.sizes.buttons.wide.borderRadius};
   padding: ${baseTheme.sizes.buttons.wide.padding};
 
   &:hover,
