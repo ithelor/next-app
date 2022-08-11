@@ -47,7 +47,7 @@ export const baseTheme = {
         borderRadius: '3px'
       },
       large: {
-        padding: '18px 28px',
+        padding: '19px 48px',
         borderRadius: '3px'
       },
       wide: {
