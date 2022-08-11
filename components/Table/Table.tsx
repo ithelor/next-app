@@ -23,7 +23,7 @@ export const head: { [key: string]: string } = {
   price: 'Стоимость единицы'
 }
 
-const getUniqueKey = (pre?: string) => `${pre}. ${new Date().getTime()}`
+const getUniqueKey = (pre?: string) => `${pre}. ${Math.random()}`
 
 export const Table = (props: ITable) => {
   const productsStore = useProductsStore()
@@ -32,7 +32,7 @@ export const Table = (props: ITable) => {
     <S.Table>
       <thead>
         <tr>
-          {Object.keys(props.data[0]).map((key: string, index) => (
+          {Object.keys(props.data[0]).map((key: string) => (
             <td key={key}>{head[key]}</td>
           ))}
           <td>Удалить</td>
