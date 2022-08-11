@@ -2,7 +2,13 @@ import styled from '@emotion/styled'
 
 import { baseTheme } from 'styles/theme'
 
-export const Table = styled.table`
+import { ITable } from './Table'
+
+interface ITableStyled {
+  sticky?: ITable['sticky']
+}
+
+export const Table = styled.table<ITableStyled>`
   font-family: 'Open Sans', sans-serif;
   letter-spacing: -1px;
 
@@ -18,10 +24,11 @@ export const Table = styled.table`
   }
 
   thead {
+    position: ${(props) => props.sticky && 'sticky'};
+    top: 0;
+
     font-size: 14px;
     font-weight: 600;
-
-    margin-bottom: 1rem;
 
     ::after {
       content: '';
@@ -32,7 +39,7 @@ export const Table = styled.table`
 
     tr {
       td {
-        padding: 22px 2rem;
+        padding: 33px 1rem;
 
         /* ignore on first column */
         :not(:first-of-type) {
@@ -111,6 +118,50 @@ export const Table = styled.table`
 
         > :last-of-type {
           border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+  }
+
+  tfoot {
+    font-size: 15px;
+    font-weight: 600;
+
+    margin-bottom: 1rem;
+
+    ::before {
+      content: '';
+
+      display: block;
+      height: 1em;
+    }
+
+    tr {
+      td {
+        /* ignore on first column */
+        :not(:first-of-type) {
+          padding: 22px 2rem;
+          border: solid ${baseTheme.colors.borderSelect};
+          border-width: 1px 0 1px 1px;
+
+          background-color: ${baseTheme.colors.lightAccent};
+        }
+
+        :last-of-type {
+          border-width: 1px;
+          border-radius: 0 5px 5px 0;
+        }
+
+        span {
+          height: 100%;
+
+          float: right;
+          padding: 22px 2rem;
+          border: solid ${baseTheme.colors.borderSelect};
+          border-width: 1px 0 1px 1px;
+          border-radius: 5px 0 0 5px;
+
+          background-color: ${baseTheme.colors.lightAccent};
         }
       }
     }
