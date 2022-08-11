@@ -4,10 +4,11 @@ import Head from 'next/head'
 import { ThemeProvider, Global } from '@emotion/react'
 import type { NextPage } from 'next'
 
-import { useParamsStore, useProductsStore } from 'lib/RootStoreContext'
-
 import { Header, Checkout } from 'layouts'
 import { Link, Params } from 'components'
+
+import { useHeaderExtras } from 'lib/HeaderExtrasContext'
+import { useParamsStore, useProductsStore } from 'lib/RootStoreContext'
 
 import GlobalStyles from 'styles/global'
 import { baseTheme } from 'styles/theme'
@@ -15,6 +16,12 @@ import { baseTheme } from 'styles/theme'
 const Select: NextPage = () => {
   const paramsStore = useParamsStore()
   const productsStore = useProductsStore()
+
+  const headerExtras = useHeaderExtras()
+
+  React.useEffect(() => {
+    headerExtras?.setState({ isParamsActive: true, isProductsTotalActive: false })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <ThemeProvider theme={baseTheme}>
@@ -32,8 +39,10 @@ const Select: NextPage = () => {
             <Header
               extra={
                 <>
-                  {paramsStore.isSet() && <Params variant="default" />}
-                  {productsStore.products.length > 0 && (
+                  {paramsStore.isSet() && headerExtras?.state.isParamsActive && (
+                    <Params variant="default" />
+                  )}
+                  {headerExtras?.state.isProductsTotalActive && (
                     <Link to="checkout">Добавленная мебель ({productsStore.products.length})</Link>
                   )}
                 </>

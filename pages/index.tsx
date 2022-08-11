@@ -28,6 +28,7 @@ const Home: NextPage<IHome> = () => (
       </Head>
 
       <Header />
+
       <Landing />
     </div>
   </ThemeProvider>

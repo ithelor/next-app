@@ -1,17 +1,25 @@
+import React from 'react'
 import Head from 'next/head'
 import { ThemeProvider, Global } from '@emotion/react'
 import type { NextPage } from 'next'
 
-import { useParamsStore } from 'lib/RootStoreContext'
-
 import { Header, Selection } from 'layouts'
 import { Params } from 'components'
+
+import { useHeaderExtras } from 'lib/HeaderExtrasContext'
+import { useParamsStore } from 'lib/RootStoreContext'
 
 import GlobalStyles from 'styles/global'
 import { baseTheme } from 'styles/theme'
 
 const Select: NextPage = () => {
   const paramsStore = useParamsStore()
+
+  const headerExtras = useHeaderExtras()
+
+  React.useEffect(() => {
+    headerExtras?.setState({ isParamsActive: true, isProductsTotalActive: false })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <ThemeProvider theme={baseTheme}>

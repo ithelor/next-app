@@ -1,16 +1,20 @@
+import React from 'react'
 import App from 'next/app'
 import type { AppContext, AppProps } from 'next/app'
 
 import { ApiProvider } from 'lib/ApiContext'
+import { HeaderExtrasProvider } from 'lib/HeaderExtrasContext'
 import { RootStoreProvider } from 'lib/RootStoreContext'
 
 import { RootStore } from 'stores/RootStore'
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <ApiProvider value={pageProps}>
-    <RootStoreProvider {...RootStore}>
-      <Component {...pageProps} />
-    </RootStoreProvider>
+    <HeaderExtrasProvider>
+      <RootStoreProvider {...RootStore}>
+        <Component {...pageProps} />
+      </RootStoreProvider>
+    </HeaderExtrasProvider>
   </ApiProvider>
 )
 
