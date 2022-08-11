@@ -14,11 +14,6 @@ export const Table = styled.table`
   tr {
     td {
       text-align: center;
-
-      /* ignore on product column */
-      :not(:first-of-type) {
-        padding: 0 3rem;
-      }
     }
   }
 
@@ -37,7 +32,7 @@ export const Table = styled.table`
 
     tr {
       td {
-        padding: 33px 3rem;
+        padding: 22px 2rem;
 
         /* ignore on first column */
         :not(:first-of-type) {
