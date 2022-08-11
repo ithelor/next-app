@@ -35,6 +35,7 @@ export const ButtonPrimary = styled(ButtonLight)`
   font-weight: 500;
 
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
 
