@@ -47,11 +47,18 @@ export class ProductsStore {
   constructor() {
     makeObservable(this, {
       products: observable,
-      addProduct: action
+      addProduct: action,
+      replaceProduct: action,
+      removeProduct: action
     })
   }
 
   addProduct = (value: IProduct) => this.products.push(value)
+
+  replaceProduct = (oldProduct: IProduct, newProduct: IProduct) =>
+    (this.products[this.products.findIndex((product) => product === oldProduct)] = newProduct)
+
+  removeProduct = (index: number) => this.products.splice(index, 1)
 
   hydrate(data?: ProductsHydration) {
     if (data) {
