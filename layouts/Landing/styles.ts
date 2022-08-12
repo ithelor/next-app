@@ -29,10 +29,15 @@ export const Landing = styled.main`
 
   @media ${baseTheme.media.medium} {
     height: auto;
+    padding: 0 10% 10%;
 
     h1 {
       margin: 1rem 0;
     }
+  }
+
+  @media ${baseTheme.media.small} {
+    background-position: -100px 50px;
   }
 `
 
