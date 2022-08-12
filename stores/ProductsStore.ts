@@ -25,6 +25,14 @@ export const furniture: IFurniture[] = [
   {
     title: 'Кровать',
     img: 'https://cgifurniture.com/wp-content/uploads/2021/06/product-3d-visualization-better-bona-bed.png'
+  },
+  {
+    title: 'Комод',
+    img: 'https://cgifurniture.com/wp-content/uploads/2019/01/B6-SHA_00016.jpg'
+  },
+  {
+    title: 'Шкаф',
+    img: 'https://cgifurniture.com/wp-content/uploads/2019/11/high-quality-3d-visualization-wardrobe-1030x893.png'
   }
 ]
 
