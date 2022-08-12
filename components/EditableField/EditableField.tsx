@@ -53,7 +53,7 @@ export const EditableField = (props: IEditableField) => {
   useClickOutside(wrapperRef)
 
   return (
-    <S.DisplayField ref={wrapperRef} isEditing={isEditing}>
+    <S.EditableField ref={wrapperRef} isEditing={isEditing}>
       <div>
         {isEditing ? (
           <input
@@ -68,6 +68,6 @@ export const EditableField = (props: IEditableField) => {
 
         {!isEditing && <PencilIcon onClick={() => setIsEditing(true)} />}
       </div>
-    </S.DisplayField>
+    </S.EditableField>
   )
 }

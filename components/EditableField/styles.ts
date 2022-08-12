@@ -6,7 +6,7 @@ interface DisplayFieldStyled {
   isEditing: boolean
 }
 
-export const DisplayField = styled.td<DisplayFieldStyled>`
+export const EditableField = styled.td<DisplayFieldStyled>`
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   font-weight: 400;
