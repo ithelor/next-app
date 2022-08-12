@@ -14,6 +14,7 @@ export interface IEditableField {
   children: number
   productToEdit: IProduct
   propertyToEdit: string
+  dataLabel: string
 }
 
 export const EditableField = (props: IEditableField) => {
@@ -53,7 +54,7 @@ export const EditableField = (props: IEditableField) => {
   useClickOutside(wrapperRef)
 
   return (
-    <S.EditableField ref={wrapperRef} isEditing={isEditing}>
+    <S.EditableField ref={wrapperRef} isEditing={isEditing} data-label={props.dataLabel}>
       <div>
         {isEditing ? (
           <input

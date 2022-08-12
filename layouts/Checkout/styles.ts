@@ -13,7 +13,7 @@ export const Checkout = styled.main<ICheckoutStyled>`
   flex-direction: column;
   gap: 2.7rem;
 
-  padding: 0 ${baseTheme.sizes.header.padding.horizontal};
+  padding: 0 10%;
   margin-bottom: ${(props) => props.isFinal && '3.4rem'};
 
   h1 {
@@ -54,21 +54,39 @@ export const Scrollable = styled.div`
     border-radius: 50px;
     background-color: ${baseTheme.colors.scroll.accent};
   }
+
+  @media ${baseTheme.media.large} {
+    /* max-height: calc(100vh - ${baseTheme.sizes.header.height} - 210px); */
+  }
 `
 
 interface IControlsStyled {
   variant?: IControls['variant']
+  isFinal?: IControls['isFinal']
+  isTooLarge?: IControls['isTooLarge']
 }
 
 export const Controls = styled.span<IControlsStyled>`
   position: ${(props) => props.variant === 'absolute' && 'absolute'};
-  right: ${baseTheme.sizes.header.padding.horizontal};
-  bottom: 4rem;
+  right: 15%;
+  bottom: 5%;
 
   display: flex;
   gap: 1rem;
 
   margin-left: auto;
+
+  @media ${baseTheme.media.large} {
+    width: ${(props) => !props.isFinal && '400px'};
+
+    flex-direction: ${(props) => props.isTooLarge && 'column'};
+
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+    text-align: center;
+  }
 `
 
 export const Total = styled.div`
@@ -121,6 +139,14 @@ export const Total = styled.div`
 
         margin-top: 1rem;
       }
+    }
+  }
+
+  @media ${baseTheme.media.large} {
+    margin-right: auto;
+
+    .costs {
+      text-align: left;
     }
   }
 `

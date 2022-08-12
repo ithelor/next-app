@@ -12,6 +12,10 @@ interface IContainerStyled {
 export const Container = styled.div<IContainerStyled>`
   min-width: ${(props) => props.width};
   width: max-content;
+
+  @media ${baseTheme.media.medium} {
+    width: 200px;
+  }
 `
 
 interface ISelectStyled {
@@ -48,8 +52,6 @@ export const Select = styled(ReactSelect)<ISelectStyled>`
 
       background-color: ${baseTheme.colors.light};
       box-shadow: none;
-
-      z-index: 2;
     }
 
     &__single-value {

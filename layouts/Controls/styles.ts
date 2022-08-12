@@ -9,6 +9,14 @@ export const Container = styled.div`
   align-content: center;
 
   gap: 1rem;
+
+  @media ${baseTheme.media.large} {
+    flex-direction: column;
+
+    button {
+      width: fit-content;
+    }
+  }
 `
 
 interface IControlsStyled {
@@ -28,6 +36,12 @@ export const Controls = styled.fieldset<IControlsStyled>`
   box-shadow: ${baseTheme.shadows.alt};
 
   border-radius: ${(props) => (props.variant === 'default' ? '3px' : '5px')};
+
+  @media ${baseTheme.media.medium} {
+    grid-template-rows: repeat(4, min-content);
+    grid-template-columns: ${(props) => props.variant === 'default' && 0} 1fr;
+    grid-auto-flow: column;
+  }
 `
 
 interface ILabel {
@@ -75,6 +89,15 @@ export const Wrapper = styled.div<IWrapperStyled>`
   :not(:last-of-type) {
     > div {
       border-right: 1px solid ${baseTheme.colors.borders.dark};
+    }
+  }
+
+  @media ${baseTheme.media.medium} {
+    :not(:last-of-type) {
+      > div {
+        border-right: 0;
+        border-bottom: 1px solid ${baseTheme.colors.borders.dark};
+      }
     }
   }
 `

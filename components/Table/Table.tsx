@@ -43,7 +43,7 @@ export const Table = (props: ITable) => {
   const productsStore = useProductsStore()
 
   return (
-    <S.Table sticky={props.sticky}>
+    <S.Table sticky={props.sticky} withTotal={props.withTotal}>
       <thead>
         <tr>
           {Object.keys(props.data[0]).map((key: string) => (
@@ -60,7 +60,10 @@ export const Table = (props: ITable) => {
                 <tr key={getUniqueKey(item.name)}>
                   {Object.values(item).map((property: string | number, index) =>
                     index === 0 ? (
-                      <td key={getUniqueKey(`${item.name}'s ${Object.keys(item)[index]}`)}>
+                      <td
+                        key={getUniqueKey(`${item.name}'s ${Object.keys(item)[index]}`)}
+                        data-label="Название"
+                      >
                         <SelectionEntry variant="selected">
                           {furniture.find((item) => item.title === property)!}
                         </SelectionEntry>
@@ -70,6 +73,7 @@ export const Table = (props: ITable) => {
                         key={getUniqueKey(`${item.name}'s ${Object.keys(item)[index]}`)}
                         productToEdit={item}
                         propertyToEdit={Object.keys(item)[index]}
+                        dataLabel={head[Object.keys(props.data[0])[index]]}
                       >
                         {property as number}
                       </EditableField>

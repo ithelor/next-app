@@ -7,7 +7,7 @@ export const Selection = styled.main`
   justify-content: space-between;
   gap: 10%;
 
-  padding: 0 ${baseTheme.sizes.header.padding.horizontal} 65px;
+  padding: 0 10% 65px;
 
   .select,
   .fill {
@@ -56,7 +56,7 @@ export const Selection = styled.main`
     flex: 0 1 50%;
 
     .scrollable {
-      max-height: calc(100vh - ${baseTheme.sizes.header.height} - 185px);
+      max-height: calc(100vh - ${baseTheme.sizes.header.height});
       overflow-y: auto;
 
       display: flex;
@@ -174,5 +174,10 @@ export const Selection = styled.main`
       display: flex;
       gap: 1rem;
     }
+  }
+
+  @media ${baseTheme.media.large} {
+    flex-direction: column;
+    gap: 3rem;
   }
 `

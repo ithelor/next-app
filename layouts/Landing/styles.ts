@@ -8,7 +8,7 @@ export const Landing = styled.main`
   justify-content: center;
 
   height: calc(100vh - ${baseTheme.sizes.header.height});
-  padding: 0 ${baseTheme.sizes.header.padding.horizontal} 0;
+  padding: 0 10% 0;
 
   background-image: url('/background.svg');
   background-repeat: no-repeat;
@@ -25,6 +25,14 @@ export const Landing = styled.main`
     color: ${baseTheme.colors.text};
 
     margin-bottom: 6rem;
+  }
+
+  @media ${baseTheme.media.medium} {
+    height: calc(100vh - 100px);
+
+    h1 {
+      margin: 1rem 0;
+    }
   }
 `
 

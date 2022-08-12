@@ -17,6 +17,8 @@ import * as S from './styles'
 export interface IControls {
   variant?: 'default' | 'absolute'
   children?: React.ReactNode
+  isFinal?: boolean
+  isTooLarge?: boolean
 }
 
 export const Checkout = () => {
@@ -46,7 +48,7 @@ export const Checkout = () => {
   }
 
   const Controls = (props: IControls) => (
-    <S.Controls variant={props.variant}>
+    <S.Controls variant={props.variant} isFinal={props.isFinal} isTooLarge={props.isTooLarge}>
       {props.children ?? (
         <>
           <ButtonPrimary ariaLabel="Add" onClick={() => router.push('/selection')}>
@@ -78,8 +80,10 @@ export const Checkout = () => {
                 <>
                   {productsStore.products.length > 0 ? (
                     <>
-                      <Table data={productsStore.products} withTotal />
-                      <Controls />
+                      <S.Scrollable>
+                        <Table data={productsStore.products} sticky withTotal />
+                      </S.Scrollable>
+                      <Controls isFinal={isFinal} />
                       <S.Total>
                         <div className="labels">
                           <h3>Стоимость доставки:</h3>
@@ -94,7 +98,7 @@ export const Checkout = () => {
                         </div>
                       </S.Total>
 
-                      <Controls>
+                      <Controls isFinal={isFinal} isTooLarge>
                         <ButtonOutlineWide ariaLabel="Save" rounder>
                           Сохранить расчёт
                           <ArrowRightIcon />
