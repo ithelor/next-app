@@ -18,10 +18,6 @@ export const SelectionEntry = styled.div<ISelectionEntryStyled>`
   border: 1px solid ${baseTheme.colors.borders.select};
   border-radius: 3px;
 
-  > span {
-    min-width: max-content;
-  }
-
   img {
     background-color: ${baseTheme.colors.light};
   }

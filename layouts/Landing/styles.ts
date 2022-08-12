@@ -28,7 +28,7 @@ export const Landing = styled.main`
   }
 
   @media ${baseTheme.media.medium} {
-    height: calc(100vh - 100px);
+    height: auto;
 
     h1 {
       margin: 1rem 0;

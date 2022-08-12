@@ -87,6 +87,14 @@ export const Controls = styled.span<IControlsStyled>`
     bottom: 1rem;
     text-align: center;
   }
+
+  @media ${baseTheme.media.small} {
+    position: static;
+    flex-direction: column;
+
+    width: auto;
+    margin-bottom: 2rem;
+  }
 `
 
 export const Total = styled.div`

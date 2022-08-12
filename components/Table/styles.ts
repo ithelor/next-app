@@ -87,7 +87,13 @@ export const Table = styled.table((props: ITableStyled) => ({
       /* target first and last tds in the first tr */
       ':first-of-type': {
         '> :first-of-type': {
-          borderRadius: '5px 0 0 0'
+          borderRadius: '5px 0 0 0',
+
+          '> div': {
+            '> span': {
+              minWidth: 'max-content'
+            }
+          }
         },
 
         '> :last-of-type': {

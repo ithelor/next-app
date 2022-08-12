@@ -173,6 +173,10 @@ export const Selection = styled.main`
 
       display: flex;
       gap: 1rem;
+
+      @media ${baseTheme.media.small} {
+        flex-direction: column;
+      }
     }
   }
 

@@ -16,7 +16,6 @@ export const Search = styled.div`
     letter-spacing: 0.2;
 
     height: 100%;
-    width: 370px;
     padding: 1.5rem;
     border-radius: 3px;
 
@@ -29,5 +28,11 @@ export const Search = styled.div`
 
   button {
     height: 100%;
+  }
+
+  @media ${baseTheme.media.medium} {
+    button {
+      padding: 1rem;
+    }
   }
 `
