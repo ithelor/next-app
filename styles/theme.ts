@@ -8,9 +8,11 @@ export const baseTheme = {
     text: '#606F7A',
     textInactive: '#B7B7B7',
 
-    borderLight: '#EBEBEB',
-    borderDark: '#DEDEDE',
-    borderSelect: '#E2E4EA',
+    borders: {
+      light: '#EBEBEB',
+      dark: '#DEDEDE',
+      select: '#E2E4EA'
+    },
 
     background: '#eff3f9',
 
@@ -24,12 +26,6 @@ export const baseTheme = {
     contact: '0px 4px 40px 0px #2E50571F',
     primary: '0px 4px 40px 0px #00000026',
     input: '0px 4px 40px 0px #0000000f'
-  },
-
-  media: {
-    small: '(max-width: 540px)',
-    medium: '(max-width: 720px)',
-    large: '(max-width: 960px)'
   },
 
   sizes: {
@@ -46,10 +42,12 @@ export const baseTheme = {
         padding: '14px 22px',
         borderRadius: '3px'
       },
+
       large: {
         padding: '19px 48px',
         borderRadius: '3px'
       },
+
       wide: {
         padding: '19px 35px',
         borderRadius: '5px'
@@ -67,9 +65,15 @@ export const baseTheme = {
 
   animations: {
     durations: {
-      short: '0.1s',
-      shorter: '0.2s',
+      shorter: '0.1s',
+      short: '0.2s',
       default: '0.3s'
     }
+  },
+
+  media: {
+    small: '(max-width: 540px)',
+    medium: '(max-width: 720px)',
+    large: '(max-width: 960px)'
   }
 }

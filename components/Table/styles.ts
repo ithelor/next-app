@@ -43,7 +43,7 @@ export const Table = styled.table<ITableStyled>`
 
         /* ignore on first column */
         :not(:first-of-type) {
-          border: solid ${baseTheme.colors.borderSelect};
+          border: solid ${baseTheme.colors.borders.select};
           border-width: 1px 0 1px 1px;
 
           background-color: ${baseTheme.colors.lightAccent};
@@ -69,7 +69,7 @@ export const Table = styled.table<ITableStyled>`
       background-color: ${baseTheme.colors.lightAccent};
 
       td {
-        border: solid ${baseTheme.colors.borderSelect};
+        border: solid ${baseTheme.colors.borders.select};
         border-width: 1px 0 0 1px;
 
         overflow: hidden;
@@ -141,7 +141,7 @@ export const Table = styled.table<ITableStyled>`
         /* ignore on first column */
         :not(:first-of-type) {
           padding: 22px 2rem;
-          border: solid ${baseTheme.colors.borderSelect};
+          border: solid ${baseTheme.colors.borders.select};
           border-width: 1px 0 1px 1px;
 
           background-color: ${baseTheme.colors.lightAccent};
@@ -157,7 +157,7 @@ export const Table = styled.table<ITableStyled>`
 
           float: right;
           padding: 22px 2rem;
-          border: solid ${baseTheme.colors.borderSelect};
+          border: solid ${baseTheme.colors.borders.select};
           border-width: 1px 0 1px 1px;
           border-radius: 5px 0 0 5px;
 

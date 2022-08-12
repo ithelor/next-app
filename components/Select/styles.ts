@@ -81,7 +81,7 @@ export const Select = styled(ReactSelect)<ISelectStyled>`
 
     &__option {
       padding: ${baseTheme.sizes.select.menu.padding};
-      border-top: 1px solid ${baseTheme.colors.borderLight};
+      border-top: 1px solid ${baseTheme.colors.borders.light};
       text-align: ${(props) => props.isOptionsCentered && 'center'};
 
       &--is-focused {

@@ -15,7 +15,7 @@ export const SelectionEntry = styled.div<ISelectionEntryStyled>`
   width: ${(props) => props.variant === 'selected' && 'fit-content'};
 
   background-color: ${baseTheme.colors.lightAccent};
-  border: 1px solid ${baseTheme.colors.borderSelect};
+  border: 1px solid ${baseTheme.colors.borders.select};
   border-radius: 3px;
 
   img {

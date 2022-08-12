@@ -12,7 +12,7 @@ export const Link = styled.a`
 
   color: ${baseTheme.colors.text};
 
-  transition: color ${baseTheme.animations.durations.short} ease-in;
+  transition: color ${baseTheme.animations.durations.shorter} ease-in;
 
   &:hover {
     color: ${baseTheme.colors.primary};

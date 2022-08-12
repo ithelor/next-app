@@ -47,7 +47,7 @@ export const Label = styled.label<ILabel>`
 
   color: ${(props) => (props.isActive ? baseTheme.colors.text : baseTheme.colors.textInactive)};
 
-  transition: all ${baseTheme.animations.durations.short} ease-out;
+  transition: all ${baseTheme.animations.durations.shorter} ease-out;
 `
 
 interface IWrapperStyled {
@@ -74,7 +74,7 @@ export const Wrapper = styled.div<IWrapperStyled>`
 
   :not(:last-of-type) {
     > div {
-      border-right: 1px solid ${baseTheme.colors.borderDark};
+      border-right: 1px solid ${baseTheme.colors.borders.dark};
     }
   }
 `
